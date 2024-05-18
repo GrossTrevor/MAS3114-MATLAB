@@ -1,0 +1,41 @@
+function [name, ufid, u, v, w, x, A, A_11, A_23, A2, A3, B, B2, B3, ...
+          b, aug, rref_Ab1, rref_Ab2, pivcols, compare] = Exercise()
+    % --- Name & UFID --- %
+    name = "Trevor Gross";
+    ufid = ;
+
+    % --- Extra Credit [5 Points] --- %
+    % * Vectors *
+    u = [1 3 5 7]; % (COMMENT) 
+    v = [1;
+         3;
+         5;
+         7]; % (COMMENT)
+    w = [1:7]; % (COMMENT)
+    x = [1:2:7]; % (COMMENT)
+    
+    % * Matrices *
+    % Enter entries manually
+    A = [1 2 3;
+         4 5 6]; 
+    A_11 = A(1, 1); % (COMMENT)
+    A_23 = A(2, 3); % (COMMENT)
+    A2 = A(2, :); % (COMMENT)
+    A3 = A(:, 3); % (COMMENT)
+    
+    % Randomly generated matrices
+    B = randi([-10, 10], 6, 4); % (COMMENT)
+    B2 = B(2:5, 2:4); % (COMMENT)
+    B3 = B([2 5], 2:4); % (COMMENT)
+    
+    % * Solving Systems *
+    % Solve Ax=b using RREF
+    b = [1;
+         2];
+    aug = [A b]; % (COMMENT)
+    rref_Ab1 = rref([A b]); % (COMMENT)
+    [rref_Ab2, pivcols] = rref([A b]); % (COMMENTS)
+    
+    % Solve Ax=b by comparing the ranks
+    compare = rank_comp(A, [A b]); % (COMMENT)
+end
